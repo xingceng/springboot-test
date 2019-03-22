@@ -52,7 +52,7 @@ public class HouseRwjController {
         return resultList1;
     }
 
-   /* //查询楼层
+    //查询楼层
     @RequestMapping("queryLouCeng")
     @ResponseBody
     public List<Louceng> queryLouCeng() {
@@ -223,6 +223,6 @@ public class HouseRwjController {
             resultList1 = (List<Circuit>) redisTemplate.opsForList().leftPop("Circuit");
         }
         return resultList1;
-    }*/
+    }
 
 }
