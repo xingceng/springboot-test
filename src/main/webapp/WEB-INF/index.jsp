@@ -85,7 +85,7 @@
         <div class="row">
             <div class="col-md-3">
                 <figure id="site-logo">
-                    <a href="<%=request.getContextPath()%>/jquery/yemian/index.html"><img
+                    <a href="<%=request.getContextPath()%>/toindex"><img
                             src="<%=request.getContextPath()%>/jquery/yemian/assets/images/logo.png" alt="Logo"></a>
                 </figure>
             </div>
@@ -113,7 +113,7 @@
                 </c:if>
                 <c:if test="${sessionScope.Kehu!=null}">
                         <div class="contact-in-header clearfix" id="loginname">
-                            <span>${sessionScope.Kehu.kehuname}</span>
+                            <span><a href="">${sessionScope.Kehu.kehuname}</a></span>
                         </div>
                 </c:if>
             </div>
@@ -139,10 +139,6 @@
                     <p>如果你梦想设计一个新的家，充分利用<br>
                         独特的地理位置和你喜欢的土地景观</p>
                 </div>
-                <a class="btn btn-warning btn-lg btn-3d" data-hover="我们的服务"
-                   href="<%=request.getContextPath()%>/jquery/yemian/#" role="button">我们的服务</a>
-                <a class="btn btn-default btn-border btn-lg" href="<%=request.getContextPath()%>/jquery/yemian/#"
-                   role="button">获取报价</a>
             </div>
         </div>
     </div>
