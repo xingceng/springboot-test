@@ -94,4 +94,9 @@ public class HouseRwjServiceImpl implements HouseRwjService {
 
     }
 
+    @Override
+    public List<House> queryershoufangbytype(House house) {
+        return houseRwjDao.queryershoufangbytype(house);
+    }
+
 }

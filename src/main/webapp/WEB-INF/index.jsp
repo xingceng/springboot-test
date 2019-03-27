@@ -130,7 +130,7 @@
                     <p>如果你梦想设计一个新的家，充分利用<br>
                         独特的地理位置和你喜欢的土地景观</p>
                 </div>
-                <a class="btn btn-warning btn-lg btn-3d" data-hover="Our Services"
+                <a class="btn btn-warning btn-lg btn-3d" data-hover="我们的服务"
                    href="<%=request.getContextPath()%>/jquery/yemian/#" role="button">我们的服务</a>
                 <a class="btn btn-default btn-border btn-lg" href="<%=request.getContextPath()%>/jquery/yemian/#"
                    role="button">获取报价</a>
@@ -140,42 +140,7 @@
 </div>
 <div id="advance-search" class="main-page clearfix">
     <div class="container">
-        <form action="#" id="adv-search-form" class="clearfix">
-            <fieldset>
-                <select name="location" id="main-location">
-                    <option value="">所有位置</option>
-                </select>
-                <select name="sub-location" id="property-sub-location">
-                    <option value="">所有线路</option>
-                </select>
-                <select name="price" id="property-price">
-                    <option value="">总价</option>
-                </select>
-                <select name="acreage" id="property-acreage">
-                    <option value="">面积</option>
-                </select>
-                <select name="huxing" id="property-huxing">
-                    <option value="">户型</option>
-                </select>
-                <select name="yongtu" id="property-yongtu">
-                    <option value="">用途</option>
-                </select>
-                <select name="louceng" id="property-louceng">
-                    <option value="">楼层</option>
-                </select>
-                <select name="mianxiang" id="property-mianxiang">
-                    <option value="">朝向</option>
-                </select>
-                <select name="louling" id="property-louling">
-                    <option value="">楼龄</option>
-                </select>
-                <select name="zhuangxiu" id="property-zhuangxiu">
-                    <option value="">装修</option>
-                </select>
-            </fieldset>
-            <button class="btn btn-default btn-lg text-center" id="hidden-sm">搜索<br class="hidden-sm hidden-xs">
-            </button>
-        </form>
+
     </div>
 </div>
 <!-- 二手房特色 start -->
@@ -433,7 +398,7 @@
                 for (var i = 0; i < data.length; i++) {
                     op += " <div class=\"col-lg-4 col-sm-6 layout-item-wrap\">\n" +
                         "                <article class=\"property layout-item clearfix\">\n" +
-                        "                    <figure class=\"feature-image\">\n" +
+                        "                    <figure class=\"feature-image\" >\n" +
                         "                        <a class=\"clearfix zoom\"\n" +
                         "                           href=\"<%=request.getContextPath()%>/toxiangqing?houseid=" + data[i].houseid + "\"><img\n" +
                         "                                data-action=\"zoom\"\n" +
@@ -586,37 +551,5 @@
         }
     }
 
-
-
-
-    //条件查询
-    $("#hidden-sm").on("click", function () {
-        alert($("#adv-search-form").serialize())
-        /*$.ajax({
-            url: "
-        <%=request.getContextPath()%>/loginusers",
-            type: "post",
-            data: $("#loginfrom").serialize(),
-            dataType: "text",
-            success: function (loginFlag) {
-                //用户名不存在
-                if (loginFlag == "userNameNO") {
-                    alert("用户名不存在");
-                }
-                //密码错误
-                if (loginFlag == "userPassNo") {
-                    alert("密码错误")
-                }
-                //登录成功
-                if (loginFlag == "loginSuccess") {
-                    location.href = "/loginbolgs/toindexbolg";
-
-                }
-            },
-            error: function () {
-                alert("程序错误");
-            }
-        })*/
-    });
 </script>
 </html>

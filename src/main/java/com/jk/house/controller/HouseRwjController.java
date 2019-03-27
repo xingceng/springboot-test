@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 
 @Controller
@@ -22,6 +23,7 @@ public class HouseRwjController {
     private HouseRwjService houseRwjService;
     @Autowired
     private RedisTemplate redisTemplate;
+
 
 
     @RequestMapping("/loginkehu")
@@ -40,14 +42,12 @@ public class HouseRwjController {
     @ResponseBody
     public List<Acreage> queryAcreage() {
         List<Acreage> resultList1 = null;
-        if (redisTemplate.opsForList().leftPop("Acreage") == null) {
+        if (redisTemplate.opsForValue().get("queryAcreage") == null) {
             List<Acreage> list = houseRwjService.queryAcreage();
-            redisTemplate.opsForList().leftPush("Acreage", list);
-            resultList1 = (List<Acreage>) redisTemplate.opsForList().leftPop("Acreage");
-            System.err.println("queryAcreage"+1);
+            redisTemplate.opsForValue().set("queryAcreage", list,15, TimeUnit.DAYS);
+            resultList1 = (List<Acreage>) redisTemplate.opsForValue().get("queryAcreage");
         } else {
-            resultList1 = (List<Acreage>) redisTemplate.opsForList().leftPop("Acreage");
-            System.err.println("queryAcreage"+2);
+            resultList1 = (List<Acreage>) redisTemplate.opsForValue().get("queryAcreage");
         }
         return resultList1;
     }
@@ -57,14 +57,14 @@ public class HouseRwjController {
     @ResponseBody
     public List<Louceng> queryLouCeng() {
         List<Louceng> resultList1 = null;
-        if (redisTemplate.opsForList().leftPop("Louceng") == null) {
+        if (redisTemplate.opsForValue().get("queryLouCeng") == null) {
             List<Louceng> list = houseRwjService.queryLouCeng();
-            redisTemplate.opsForList().leftPush("Louceng", list);
-            resultList1 = (List<Louceng>) redisTemplate.opsForList().leftPop("Louceng");
-            System.err.println("queryLouCeng"+1);
+            redisTemplate.opsForValue().set("queryLouCeng", list,15, TimeUnit.DAYS);
+            resultList1 = (List<Louceng>) redisTemplate.opsForValue().get("queryLouCeng");
         } else {
-            resultList1 = (List<Louceng>) redisTemplate.opsForList().leftPop("Louceng");
+            resultList1 = (List<Louceng>) redisTemplate.opsForValue().get("queryLouCeng");
         }
+
         return resultList1;
     }
 
@@ -73,13 +73,12 @@ public class HouseRwjController {
     @ResponseBody
     public List<Louling> queryLouLing() {
         List<Louling> resultList1 = null;
-        if (redisTemplate.opsForList().leftPop("Louling") == null) {
+        if (redisTemplate.opsForValue().get("queryLouLing") == null) {
             List<Louling> list = houseRwjService.queryLouLing();
-            redisTemplate.opsForList().leftPush("Louling", list);
-            resultList1 = (List<Louling>) redisTemplate.opsForList().leftPop("Louling");
-            System.err.println("queryLouLing"+1);
+            redisTemplate.opsForValue().set("queryLouLing", list,15, TimeUnit.DAYS);
+            resultList1 = (List<Louling>) redisTemplate.opsForValue().get("queryLouLing");
         } else {
-            resultList1 = (List<Louling>) redisTemplate.opsForList().leftPop("Louling");
+            resultList1 = (List<Louling>) redisTemplate.opsForValue().get("queryLouLing");
         }
         return resultList1;
     }
@@ -89,13 +88,12 @@ public class HouseRwjController {
     @ResponseBody
     public List<Privace> queryPrice() {
         List<Privace> resultList1 = null;
-        if (redisTemplate.opsForList().leftPop("Privace") == null) {
+        if (redisTemplate.opsForValue().get("queryPrice") == null) {
             List<Privace> list = houseRwjService.queryPrice();
-            redisTemplate.opsForList().leftPush("Privace", list);
-            resultList1 = (List<Privace>) redisTemplate.opsForList().leftPop("Privace");
-            System.err.println("queryPrice"+1);
+            redisTemplate.opsForValue().set("queryPrice", list,15, TimeUnit.DAYS);
+            resultList1 = (List<Privace>) redisTemplate.opsForValue().get("queryPrice");
         } else {
-            resultList1 = (List<Privace>) redisTemplate.opsForList().leftPop("Privace");
+            resultList1 = (List<Privace>) redisTemplate.opsForValue().get("queryPrice");
         }
         return resultList1;
     }
@@ -105,13 +103,12 @@ public class HouseRwjController {
     @ResponseBody
     public List<Yongtu> queryYongtu() {
         List<Yongtu> resultList1 = null;
-        if (redisTemplate.opsForList().leftPop("Yongtu") == null) {
+        if (redisTemplate.opsForValue().get("queryYongtu") == null) {
             List<Yongtu> list = houseRwjService.queryYongtu();
-            redisTemplate.opsForList().leftPush("Yongtu", list);
-            resultList1 = (List<Yongtu>) redisTemplate.opsForList().leftPop("Yongtu");
-            System.err.println("queryYongtu"+1);
+            redisTemplate.opsForValue().set("queryYongtu", list,15, TimeUnit.DAYS);
+            resultList1 = (List<Yongtu>) redisTemplate.opsForValue().get("queryYongtu");
         } else {
-            resultList1 = (List<Yongtu>) redisTemplate.opsForList().leftPop("Yongtu");
+            resultList1 = (List<Yongtu>) redisTemplate.opsForValue().get("queryYongtu");
         }
         return resultList1;
     }
@@ -121,13 +118,12 @@ public class HouseRwjController {
     @ResponseBody
     public List<Zhuangxiu> queryZhuangxiu() {
         List<Zhuangxiu> resultList1 = null;
-        if (redisTemplate.opsForList().leftPop("Zhuangxiu") == null) {
+        if (redisTemplate.opsForValue().get("queryZhuangxiu") == null) {
             List<Zhuangxiu> list = houseRwjService.queryZhuangxiu();
-            redisTemplate.opsForList().leftPush("Zhuangxiu", list);
-            resultList1 = (List<Zhuangxiu>) redisTemplate.opsForList().leftPop("Zhuangxiu");
-            System.err.println("queryZhuangxiu"+1);
+            redisTemplate.opsForValue().set("queryZhuangxiu", list,15, TimeUnit.DAYS);
+            resultList1 = (List<Zhuangxiu>) redisTemplate.opsForValue().get("queryZhuangxiu");
         } else {
-            resultList1 = (List<Zhuangxiu>) redisTemplate.opsForList().leftPop("Zhuangxiu");
+            resultList1 = (List<Zhuangxiu>) redisTemplate.opsForValue().get("queryZhuangxiu");
         }
         return resultList1;
     }
@@ -137,13 +133,12 @@ public class HouseRwjController {
     @ResponseBody
     public List<Unit> queryHuxing() {
         List<Unit> resultList1 = null;
-        if (redisTemplate.opsForList().leftPop("Unit") == null) {
+        if (redisTemplate.opsForValue().get("queryHuxing") == null) {
             List<Unit> list = houseRwjService.queryHuxing();
-            redisTemplate.opsForList().leftPush("Unit", list);
-            resultList1 = (List<Unit>) redisTemplate.opsForList().leftPop("Unit");
-            System.err.println("queryHuxing"+1);
+            redisTemplate.opsForValue().set("queryHuxing", list,15, TimeUnit.DAYS);
+            resultList1 = (List<Unit>) redisTemplate.opsForValue().get("queryHuxing");
         } else {
-            resultList1 = (List<Unit>) redisTemplate.opsForList().leftPop("Unit");
+            resultList1 = (List<Unit>) redisTemplate.opsForValue().get("queryHuxing");
         }
         return resultList1;
     }
@@ -153,13 +148,12 @@ public class HouseRwjController {
     @ResponseBody
     public List<Mianxiang> queryMianxiang() {
         List<Mianxiang> resultList1 = null;
-        if (redisTemplate.opsForList().leftPop("queryMianxiang") == null) {
+        if (redisTemplate.opsForValue().get("queryMianxiang") == null) {
             List<Mianxiang> list = houseRwjService.queryMianxiang();
-            redisTemplate.opsForList().leftPush("queryMianxiang", list);
-            resultList1 = (List<Mianxiang>) redisTemplate.opsForList().leftPop("queryMianxiang");
-            System.err.println("queryMianxiang"+1);
+            redisTemplate.opsForValue().set("queryMianxiang", list,15, TimeUnit.DAYS);
+            resultList1 = (List<Mianxiang>) redisTemplate.opsForValue().get("queryMianxiang");
         } else {
-            resultList1 = (List<Mianxiang>) redisTemplate.opsForList().leftPop("queryMianxiang");
+            resultList1 = (List<Mianxiang>) redisTemplate.opsForValue().get("queryMianxiang");
         }
         return resultList1;
     }
@@ -169,13 +163,12 @@ public class HouseRwjController {
     @ResponseBody
     public List<House> queryfangyuan(Integer housetype, Integer page, Integer rows) {
         List<House> resultList1 = null;
-        if (redisTemplate.opsForList().leftPop("House") == null) {
-            List<House> list = houseRwjService.queryfangyuan(housetype, page, rows);
-            redisTemplate.opsForList().leftPush("House", list);
-            resultList1 = (List<House>) redisTemplate.opsForList().leftPop("House");
-            System.err.println("queryfangyuan"+1);
+        if (redisTemplate.opsForValue().get("queryfangyuan") == null) {
+            List<House> list = houseRwjService.queryfangyuan(housetype,page,rows);
+            redisTemplate.opsForValue().set("queryfangyuan", list,15, TimeUnit.DAYS);
+            resultList1 = (List<House>) redisTemplate.opsForValue().get("queryfangyuan");
         } else {
-            resultList1 = (List<House>) redisTemplate.opsForList().leftPop("House");
+            resultList1 = (List<House>) redisTemplate.opsForValue().get("queryfangyuan");
         }
         return resultList1;
     }
@@ -184,13 +177,13 @@ public class HouseRwjController {
     @RequestMapping("toxiangqing")
     public String queryfangyuanbyid(Integer houseid, Model model) {
         House resultList1 = null;
-        if (redisTemplate.opsForList().leftPop("House") == null) {
+        if (redisTemplate.opsForValue().get("queryfangyuanbyid") == null) {
             House list =  houseRwjService.queryfangyuanbyid(houseid);
             redisTemplate.opsForList().leftPush("House", list);
-            resultList1 = (House) redisTemplate.opsForList().leftPop("House");
-            System.err.println("toxiangqing"+1);
+            redisTemplate.opsForValue().set("queryfangyuanbyid", list,15, TimeUnit.DAYS);
+            resultList1 = (House) redisTemplate.opsForValue().get("queryfangyuanbyid");
         } else {
-            resultList1 = (House) redisTemplate.opsForList().leftPop("House");
+            resultList1 = (House) redisTemplate.opsForValue().get("queryfangyuanbyid");
         }
         model.addAttribute("list", resultList1);
         return "xiangqing";
@@ -214,15 +207,19 @@ public class HouseRwjController {
     @ResponseBody
     public List<Circuit> queryxianlu(Integer id) {
         List<Circuit> resultList1 = null;
-        if (redisTemplate.opsForList().leftPop("Circuit") == null) {
+        if (redisTemplate.opsForValue().get("queryxianlu") == null) {
             List<Circuit> list = houseRwjService.queryxianlu(id);
-            redisTemplate.opsForList().leftPush("Circuit", list);
-            resultList1 = (List<Circuit>) redisTemplate.opsForList().leftPop("Circuit");
-            System.err.println("queryxianlu"+1);
+            redisTemplate.opsForValue().set("queryxianlu", list,15, TimeUnit.DAYS);
+            resultList1 = (List<Circuit>) redisTemplate.opsForValue().get("queryxianlu");
         } else {
-            resultList1 = (List<Circuit>) redisTemplate.opsForList().leftPop("Circuit");
+            resultList1 = (List<Circuit>) redisTemplate.opsForValue().get("queryxianlu");
         }
         return resultList1;
     }
-
+    @RequestMapping("queryershoufangbytype")
+    @ResponseBody
+    public List<House> queryershoufangbytype(House house) {
+            List<House> list = houseRwjService.queryershoufangbytype(house);
+        return list;
+    }
 }

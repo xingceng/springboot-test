@@ -249,4 +249,37 @@ public class House implements Serializable {
     public void setDiqu(String diqu) {
         this.diqu = diqu;
     }
+
+    @Override
+    public String toString() {
+        return "House{" +
+                "houseid=" + houseid +
+                ", housename='" + housename + '\'' +
+                ", housetype=" + housetype +
+                ", housecircuitid=" + housecircuitid +
+                ", housepriceid=" + housepriceid +
+                ", houseacreageid=" + houseacreageid +
+                ", houseunitid=" + houseunitid +
+                ", houseyongtuid=" + houseyongtuid +
+                ", houseloucengid=" + houseloucengid +
+                ", housemianxiang=" + housemianxiang +
+                ", houseloulingid=" + houseloulingid +
+                ", housezhuangxiuid=" + housezhuangxiuid +
+                ", housexiangqing='" + housexiangqing + '\'' +
+                ", houseimg='" + houseimg + '\'' +
+                ", housecount=" + housecount +
+                ", housestuts=" + housestuts +
+                ", housetime=" + housetime +
+                ", acreagename='" + acreagename + '\'' +
+                ", circuitname='" + circuitname + '\'' +
+                ", loucengname='" + loucengname + '\'' +
+                ", loulingname='" + loulingname + '\'' +
+                ", mianxiangname='" + mianxiangname + '\'' +
+                ", pricename='" + pricename + '\'' +
+                ", unitname='" + unitname + '\'' +
+                ", yongtuname='" + yongtuname + '\'' +
+                ", zhuangxiuname='" + zhuangxiuname + '\'' +
+                ", diqu='" + diqu + '\'' +
+                '}';
+    }
 }

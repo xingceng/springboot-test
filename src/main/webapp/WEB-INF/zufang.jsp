@@ -124,42 +124,41 @@
 <div id="advance-search" class="main-page clearfix">
     <div class="container">
         <button class="btn top-btn">寻找房源</button>
-        <form action="#" id="adv-search-form" class="clearfix">
+        <form  id="adv-search-form">
             <fieldset>
-                <select name="location" id="main-location">
+                <select  id="main-location" >
                     <option value="">所有位置</option>
                 </select>
-                <select name="sub-location" id="property-sub-location">
+                <select name="housecircuitid" id="property-sub-location">
                     <option value="">所有线路</option>
                 </select>
-                <select name="price" id="property-price">
+                <select name="housepriceid" id="property-price">
                     <option value="">总价</option>
                 </select>
-                <select name="acreage" id="property-acreage">
+                <select name="houseacreageid" id="property-acreage">
                     <option value="">面积</option>
                 </select>
-                <select name="huxing" id="property-huxing">
+                <select name="houseunitid" id="property-huxing">
                     <option value="">户型</option>
                 </select>
-                <select name="yongtu" id="property-yongtu">
+                <select name="houseyongtuid" id="property-yongtu">
                     <option value="">用途</option>
                 </select>
-                <select name="louceng" id="property-louceng">
+                <select name="houseloucengid" id="property-louceng">
                     <option value="">楼层</option>
                 </select>
-                <select name="mianxiang" id="property-mianxiang">
+                <select name="housemianxiang" id="property-mianxiang">
                     <option value="">朝向</option>
                 </select>
-                <select name="louling" id="property-louling">
+                <select name="houseloulingid" id="property-louling">
                     <option value="">楼龄</option>
                 </select>
-                <select name="zhuangxiu" id="property-zhuangxiu">
+                <select name="housezhuangxiuid" id="property-zhuangxiu">
                     <option value="">装修</option>
                 </select>
             </fieldset>
-            <button class="btn btn-default btn-lg text-center" id="hidden-sm">搜索<br class="hidden-sm hidden-xs">
-            </button>
         </form>
+        <button id="sousu" class="btn btn-primary">搜索</button>
     </div>
 </div>
 <section id="property-listing">
@@ -180,7 +179,7 @@
         </div>
     </header>
     <div class="container section-layout">
-        <div class="row" id="ershoufangyuans">
+        <div class="row" id="zufang">
         </div>
         <ul id="pagination" class="text-center clearfix">
             <li class="disabled"><a href="<%=request.getContextPath()%>/jquery/yemian/#">Previous</a></li>
@@ -322,7 +321,7 @@
                         "                </article>\n" +
                         "            </div>";
                 }
-                $("#ershoufangyuans").append(op);
+                $("#zufang").append(op);
             }
         })
         $.ajax({
@@ -483,7 +482,68 @@
                         "                </article>\n" +
                         "            </div>";
                 }
-                $("#ershoufangyuans").html(op);
+                $("#zufang").html(op);
+            }
+        })
+    });
+    // 条件查询
+    $("#sousu").on("click", function () {
+        $.ajax({
+            url: " <%=request.getContextPath()%>/queryershoufangbytype",
+            type: "post",
+            data: $("#adv-search-form").serialize(),
+            dataType: "json",
+            success: function (data) {
+                var op = "";
+                for (var i = 0; i < data.length; i++) {
+                    op += "<div class=\"col-lg-4 col-sm-6 layout-item-wrap\">\n" +
+                        "                <article class=\"property layout-item clearfix\">\n" +
+                        "                    <figure class=\"feature-image\">\n" +
+                        "                        <a class=\"clearfix zoom\"\n" +
+                        "                           href=\"<%=request.getContextPath()%>/jquery/yemian/single-property.html\"><img\n" +
+                        "                                data-action=\"zoom\"\n" +
+                        "                                src=\"<%=request.getContextPath()%>/jquery/yemian/assets/images/property/9.jpg\"\n" +
+                        "                                alt=\"Property Image\"></a>\n" +
+                        "                        <span class=\"btn btn-warning btn-sale\">待售</span>\n" +
+                        "                    </figure>\n" +
+                        "                    <div class=\"property-contents clearfix\">\n" +
+                        "                        <header class=\"property-header clearfix\">\n" +
+                        "                            <div class=\"pull-left\">\n" +
+                        "                                <h6 class=\"entry-title\"><a\n" +
+                        "                                        href=\"<%=request.getContextPath()%>/jquery/yemian/single-property.html\">"+ data[i].housename +"</a></h6>\n" +
+                        "                                <span class=\"property-location\"><i class=\"fa fa-map-marker\"></i></span>\n" +
+                        "                            </div>\n" +
+                        "                            <button class=\"btn btn-default btn-price pull-right btn-3d\" data-hover="+ data[i].pricename + "><strong>"+ data[i].pricename + "</strong>\n" +
+                        "                            </button>\n" +
+                        "                        </header>\n" +
+                        "                        <div class=\"property-meta clearfix\">\n" +
+                        "                            <span><i class=\"fa fa-arrows-alt\"></i>面积：" + data[i].acreagename + "</span>\n" +
+                        "                            <span><i class=\"fa fa-bed\"></i> 户型：" + data[i].unitname + "一厅一卫</span>\n" +
+                        "                            <span><i class=\"fa fa-bathtub\"></i> 朝向：" + data[i].mianxiangname + "</span>\n" +
+                        "                             <span><i class=\"fa fa-cab\"></i>发布时间：" + data[i].housetime +"</span>\n" +
+                        "                        </div>\n" +
+                        "                        <div class=\"contents clearfix\">\n" +
+                        "                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor\n" +
+                        "                                invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et\n" +
+                        "                                accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata\n" +
+                        "                                sanctus est Lorem ipsum dolor sit amet. </p>\n" +
+                        "                        </div>\n" +
+                        "                        <div class=\"author-box clearfix\">\n" +
+                        "                            <a href=\"<%=request.getContextPath()%>/jquery/yemian/#\" class=\"author-img\"><img\n" +
+                        "                                    src=\"<%=request.getContextPath()%>/jquery/yemian/assets/images/agents/1.jpg\"\n" +
+                        "                                    alt=\"Agent Image\"></a>\n" +
+                        "                            <cite class=\"author-name\">Personal Seller: <a\n" +
+                        "                                    href=\"<%=request.getContextPath()%>/jquery/yemian/#\">Linda Garret</a></cite>\n" +
+                        "                            <span class=\"phone\"><i class=\"fa fa-phone\"></i> 00894 692-49-22</span>\n" +
+                        "                        </div>\n" +
+                        "                    </div>\n" +
+                        "                </article>\n" +
+                        "            </div>";
+                }
+                $("#zufang").html(op);
+            },
+            error: function () {
+                alert("程序错误");
             }
         })
     });

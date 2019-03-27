@@ -41,6 +41,10 @@ public class TestController {
     public String tohaiwai() {
         return "haiwai";
     }
+    @RequestMapping("tosingle")
+    public String tosingle() {
+        return "single";
+    }
 
 
 }

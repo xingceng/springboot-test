@@ -48,4 +48,6 @@ public interface HouseRwjService {
     List<House> queryershouofangbydates(Integer housetype, Integer page, Integer rows);
 
     House queryfangyuanbyid(Integer houseid);
+
+    List<House> queryershoufangbytype(House house);
 }
