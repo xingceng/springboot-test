@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <jsp:include page="/jquery/indexj/bootstjs.jsp"></jsp:include>
 <html lang="en">
 <head>
@@ -86,7 +87,7 @@
         <div class="row">
             <div class="col-md-3">
                 <figure id="site-logo">
-                    <a href="<%=request.getContextPath()%>/jquery/yemian/index.html"><img
+                    <a href="<%=request.getContextPath()%>/toindex"><img
                             src="<%=request.getContextPath()%>/jquery/yemian/assets/images/logo.png" alt="Logo"></a>
                 </figure>
             </div>
@@ -103,13 +104,20 @@
                 </nav>
             </div>
             <div class="col-md-4 col-sm-4">
-                <div class="contact-in-header clearfix" id="loginname">
-                    <i class="fa fa-mobile"></i>
-                    <a class="btn btn-warning btn-lg btn-3d" data-hover="登陆"
-                       href="<%=request.getContextPath()%>/tologin" role="button">登陆</a>
-                    <a class="btn btn-warning btn-lg btn-3d" data-hover="注册"
-                       href="<%=request.getContextPath()%>/toregedis" role="button">注册</a>
-                </div>
+                <c:if test="${sessionScope.Kehu==null}">
+                    <div class="contact-in-header clearfix" id="loginname">
+                        <i class="fa fa-mobile"></i>
+                        <a class="btn btn-warning btn-lg btn-3d" data-hover="登陆"
+                           href="<%=request.getContextPath()%>/tologin" role="button">登陆</a>
+                        <a class="btn btn-warning btn-lg btn-3d" data-hover="注册"
+                           href="<%=request.getContextPath()%>/toregedis" role="button">注册</a>
+                    </div>
+                </c:if>
+                <c:if test="${sessionScope.Kehu!=null}">
+                    <div class="contact-in-header clearfix" id="loginname">
+                        <span><a href="">${sessionScope.Kehu.kehuname}</a></span>
+                    </div>
+                </c:if>
             </div>
         </div>
     </div>
