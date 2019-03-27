@@ -301,7 +301,7 @@
                         "                        <header class=\"property-header clearfix\">\n" +
                         "                            <div class=\"pull-left\">\n" +
                         "                                <h6 class=\"entry-title\"><a\n" +
-                        "                                        href=\"<%=request.getContextPath()%>/jquery/yemian/single-property.html\">" + data[i].housename + "</a></h6>\n" +
+                        "                                        href=\"<%=request.getContextPath()%>/toxiangqing?houseid=" + data[i].houseid + "\"> " + data[i].housename + "</a></h6>\n" +
                         "                                <span class=\"property-location\"><i class=\"fa fa-map-marker\"></i></span>\n" +
                         "                            </div>\n" +
                         "                            <button class=\"btn btn-default btn-price pull-right btn-3d\" data-hover=" + data[i].pricename + "><strong>" + data[i].pricename + "</strong>\n" +
@@ -462,7 +462,7 @@
                         "                        <header class=\"property-header clearfix\">\n" +
                         "                            <div class=\"pull-left\">\n" +
                         "                                <h6 class=\"entry-title\"><a\n" +
-                        "                                        href=\"<%=request.getContextPath()%>/jquery/yemian/single-property.html\">" + data[i].housename + "</a></h6>\n" +
+                        "                                        href=\"<%=request.getContextPath()%>/toxiangqing?houseid=" + data[i].houseid + "\"> " + data[i].housename + "</a></h6>\n" +
                         "                                <span class=\"property-location\"><i class=\"fa fa-map-marker\"></i></span>\n" +
                         "                            </div>\n" +
                         "                            <button class=\"btn btn-default btn-price pull-right btn-3d\" data-hover=" + data[i].pricename + "><strong>" + data[i].pricename + "</strong>\n" +
@@ -520,7 +520,7 @@
                         "                        <header class=\"property-header clearfix\">\n" +
                         "                            <div class=\"pull-left\">\n" +
                         "                                <h6 class=\"entry-title\"><a\n" +
-                        "                                        href=\"<%=request.getContextPath()%>/jquery/yemian/single-property.html\">"+ data[i].housename +"</a></h6>\n" +
+                        "                                        href=\"<%=request.getContextPath()%>/toxiangqing?houseid=" + data[i].houseid + "\"> "+ data[i].housename +"</a></h6>\n" +
                         "                                <span class=\"property-location\"><i class=\"fa fa-map-marker\"></i></span>\n" +
                         "                            </div>\n" +
                         "                            <button class=\"btn btn-default btn-price pull-right btn-3d\" data-hover="+ data[i].pricename + "><strong>"+ data[i].pricename + "</strong>\n" +
