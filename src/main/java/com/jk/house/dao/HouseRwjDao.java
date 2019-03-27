@@ -8,10 +8,6 @@ import java.util.List;
 
 public interface HouseRwjDao {
 
-    //登陆
-    @Select("SELECT * FROM t_kehu k WHERE k.`kehuname`=#{kehuname}")
-    List<Kehu> getTestNameIsNull(Kehu kehu);
-
     //查询面积
     @Select("select * from t_acreage ")
     List<Acreage> queryAcreage();
@@ -91,4 +87,7 @@ public interface HouseRwjDao {
             + "</if>"
             + "</script>")
     List<House> queryershoufangbytype(@Param("h") House house);
+    //登陆
+    @Select("SELECT * FROM t_kehu k WHERE k.`kehuname`=#{Kehuname}")
+    Kehu queryKeHu(String Kehuname);
 }

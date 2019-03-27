@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -25,17 +26,20 @@ public class HouseRwjController {
     private RedisTemplate redisTemplate;
 
 
-
     @RequestMapping("/loginkehu")
     @ResponseBody
-    public String loginkehu(Kehu kehu, HttpServletRequest request) {
-        String loginFlag = null;
-        loginFlag = houseRwjService.login(kehu);
-        String[] parts = loginFlag.split(",");
-        request.getSession().setAttribute("kehuname", parts[1]);
-        String logins = parts[0];
-        return logins;
+    public String loginkehu(Kehu kehu,HttpSession session) {
+        Kehu kehu1=houseRwjService.queryKeHu(kehu.getKehuname());
+        if(kehu1==null){
+            return "用户名或密码错误";
+        }
+        if(!kehu1.getKehupassword().equals(kehu.getKehupassword())){
+            return "用户名或密码错误";
+        }
+        session.setAttribute("Kehu",kehu1);
+        return "登陆成功";
     }
+
 
     //查询面积
     @RequestMapping("queryAcreage")

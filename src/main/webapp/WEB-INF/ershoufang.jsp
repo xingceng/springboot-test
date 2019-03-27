@@ -98,6 +98,7 @@
                         <li><a href="<%=request.getContextPath()%>/toxinfang">新房</a></li>
                         <li><a href="<%=request.getContextPath()%>/togongyu">公寓</a></li>
                         <li><a href="<%=request.getContextPath()%>/tohaiwai">海外</a></li>
+                        <li><a href="<%=request.getContextPath()%>/tozhishi">知识</a></li>
                     </ul>
                 </nav>
             </div>

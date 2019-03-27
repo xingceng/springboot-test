@@ -4,12 +4,11 @@ package com.jk.house.service;
 import com.jk.house.model.*;
 import org.springframework.cache.annotation.Cacheable;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 public interface HouseRwjService {
 
-    //登陆
-    String login(Kehu kehu);
 
     //查询面积
     @Cacheable(value = "acreage", key = "#root.targetClass + #queryAcreage", unless = "#result eq null")
@@ -48,6 +47,9 @@ public interface HouseRwjService {
     List<House> queryershouofangbydates(Integer housetype, Integer page, Integer rows);
 
     House queryfangyuanbyid(Integer houseid);
+
+
+    Kehu queryKeHu(String Kehuname);
 
     List<House> queryershoufangbytype(House house);
 }

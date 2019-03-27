@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -96,17 +97,25 @@
                         <li><a href="<%=request.getContextPath()%>/toxinfang">新房</a></li>
                         <li><a href="<%=request.getContextPath()%>/togongyu">公寓</a></li>
                         <li><a href="<%=request.getContextPath()%>/tohaiwai">海外</a></li>
+                        <li><a href="<%=request.getContextPath()%>/tozhishi">知识</a></li>
                     </ul>
                 </nav>
             </div>
             <div class="col-md-4 col-sm-4">
-                <div class="contact-in-header clearfix" id="loginname">
-                    <i class="fa fa-mobile"></i>
-                    <a class="btn btn-warning btn-lg btn-3d" data-hover="登陆"
-                       href="<%=request.getContextPath()%>/tologin" role="button">登陆</a>
-                    <a class="btn btn-warning btn-lg btn-3d" data-hover="注册"
-                       href="<%=request.getContextPath()%>/toregedis" role="button">注册</a>
-                </div>
+                <c:if test="${sessionScope.Kehu==null}">
+                    <div class="contact-in-header clearfix" id="loginname">
+                        <i class="fa fa-mobile"></i>
+                        <a class="btn btn-warning btn-lg btn-3d" data-hover="登陆"
+                           href="<%=request.getContextPath()%>/tologin" role="button">登陆</a>
+                        <a class="btn btn-warning btn-lg btn-3d" data-hover="注册"
+                           href="<%=request.getContextPath()%>/toregedis" role="button">注册</a>
+                    </div>
+                </c:if>
+                <c:if test="${sessionScope.Kehu!=null}">
+                        <div class="contact-in-header clearfix" id="loginname">
+                            <span>${sessionScope.Kehu.kehuname}</span>
+                        </div>
+                </c:if>
             </div>
         </div>
     </div>
