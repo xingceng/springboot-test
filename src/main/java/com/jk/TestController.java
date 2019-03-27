@@ -4,6 +4,8 @@ package com.jk;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class TestController {
 
@@ -42,5 +44,19 @@ public class TestController {
         return "haiwai";
     }
 
+    @RequestMapping("toBroker")
+    public String toBroker(){
+        return "broker";
+    }
 
+    @RequestMapping("toXiangQing")
+    public String toXiangQing(){
+        return "xiangqing";
+    }
+
+    @RequestMapping("toBroInfo")
+    public String toBroInfo(Integer id,HttpSession session){
+        session.setAttribute("id",id);
+        return "broInfo";
+    }
 }

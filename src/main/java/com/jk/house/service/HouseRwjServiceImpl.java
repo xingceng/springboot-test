@@ -93,5 +93,4 @@ public class HouseRwjServiceImpl implements HouseRwjService {
         return houseRwjDao.queryfangyuanbyid(houseid);
 
     }
-
 }

@@ -20,6 +20,7 @@ public class HouseRwjController {
 
     @Autowired
     private HouseRwjService houseRwjService;
+
     @Autowired
     private RedisTemplate redisTemplate;
 
@@ -224,5 +225,4 @@ public class HouseRwjController {
         }
         return resultList1;
     }
-
 }

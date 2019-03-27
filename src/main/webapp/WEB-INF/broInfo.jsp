@@ -102,6 +102,7 @@
                         <li><a href="<%=request.getContextPath()%>/toxinfang">新房</a></li>
                         <li><a href="<%=request.getContextPath()%>/togongyu">公寓</a></li>
                         <li><a href="<%=request.getContextPath()%>/tohaiwai">海外</a></li>
+                        <li><a href="<%=request.getContextPath()%>/toBroker">经纪人</a></li>
                         <li><a href="<%=request.getContextPath()%>/tozhishi">知识</a></li>
                     </ul>
                 </nav>
@@ -119,137 +120,29 @@
     </div>
 </header>
 <div id="property-single">
-    <div id="main-slider">
-        <div class="slide"><img src="<%=request.getContextPath()%>/jquery/yemian/assets/images/slider/1.jpg"
-                                alt="Slide"></div>
-        <div class="slide"><img src="<%=request.getContextPath()%>/jquery/yemian/assets/images/slider/2.jpg"
-                                alt="Slide"></div>
-        <div class="slide"><img src="<%=request.getContextPath()%>/jquery/yemian/assets/images/slider/3.jpg"
-                                alt="Slide"></div>
-        <div class="slide"><img src="<%=request.getContextPath()%>/jquery/yemian/assets/images/slider/4.jpg"
-                                alt="Slide"></div>
-    </div>
     <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-md-7">
-                <section class="property-meta-wrapper common">
-                    <h3 class="entry-title">${list.housename}</h3>
-                    <div class="property-single-meta">
-                        <ul class="clearfix">
-                            <li><span>面积:</span>${list.acreagename}</li>
-                            <li><span>户型 :</span>${list.unitname}</li>
-                            <li><span>朝向:</span>${list.mianxiangname}</li>
-                            <li><span>路线:</span>${list.circuitname}</li>
-                            <li><span>楼层 :</span>${list.loucengname}</li>
-                            <li><span>楼龄:</span>${list.loulingname}</li>
-                            <li><span>价格 :</span>${list.pricename}</li>
-                            <li><span>装修:</span>${list.zhuangxiuname}</li>
-                        </ul>
-                    </div>
-                </section>
-                <section class="property-contents common">
-                    <div class="entry-title clearfix">
-                        <h4 class="pull-left">Description </h4>
-                    </div>
-                    <p>${list.housexiangqing}</p>
-                </section>
-                <section class="property-single-features common clearfix">
-                    <h4 class="entry-title">Property Features</h4>
-                    <ul class="property-single-features-list clearfix">
-                        <li>Air Conditioning</li>
-                        <li>Cable TV</li>
-                        <li>Cot</li>
-                        <li class="disabled">Fan</li>
-                        <li>Lift</li>
-                        <li>Parking</li>
-                        <li>Separate Shower</li>
-                        <li>Office/den</li>
-                        <li class="disabled">Air Conditioning</li>
-                        <li>Cable TV</li>
-                        <li>Cot</li>
-                        <li>Fan</li>
-                        <li>Lift</li>
-                        <li class="disabled">Parking</li>
-                        <li>Cot</li>
-                        <li>Fan</li>
-                        <li>Lift</li>
-                        <li>Parking</li>
-                        <li>Separate Shower</li>
-                        <li class="disabled">Office/den</li>
-                        <li>Air Conditioning</li>
-                        <li>Cable TV</li>
-                    </ul>
-                </section>
-
-                <
+        <div class="row"  style="margin-top: 40px">
+            <div class="col-lg-12 col-md-7">
                 <section class="property-agent common">
                     <h4 class="entry-title">Contact Agent</h4>
-                    <div class="row">
-                        <div class="col-lg-7">
-                            <div class="agent-box clearfix">
-                                <div class="row">
-                                    <div class="col-sm-5 col-xs-5">
-                                        <a href="<%=request.getContextPath()%>/jquery/yemian#" class="agent-image"><img
-                                                src="<%=request.getContextPath()%>/jquery/yemian/assets/images/agents/2.jpg"
-                                                alt="Agent Image"></a>
-                                    </div>
-                                    <div class="col-sm-7 col-xs-7">
-                                        <cite class="agent-name">Michelle Ramirez</cite>
-                                        <small class="designation">Company Agent at Realtory Inc.</small>
-                                        <ul class="agent-social-handlers clearfix">
-                                            <li><a href="<%=request.getContextPath()%>/jquery/yemian#"><i
-                                                    class="fa fa-facebook-square"></i> Facebook</a></li>
-                                            <li><a href="<%=request.getContextPath()%>/jquery/yemian#"><i
-                                                    class="fa fa-twitter-square"></i> Twitter</a></li>
-                                            <li><a href="<%=request.getContextPath()%>/jquery/yemian#"><i
-                                                    class="fa fa-pinterest-square"></i> Pinterest</a></li>
-                                            <li><a href="<%=request.getContextPath()%>/jquery/yemian#"><i
-                                                    class="fa fa-google-plus-square"></i> Google Plus</a></li>
-                                        </ul>
-                                        <a href="<%=request.getContextPath()%>/jquery/yemian#" class="btn btn-warning">View
-                                            Profile</a>
-                                    </div>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. luctus ligula ac faucibus
-                                    faucibus. Cras in nisi in turpis eleifend vehicula at at massa. Vivamus aliquet
-                                    porttitor odio.</p>
-                            </div>
-                            <div class="widget address-widget clearfix">
-                                <ul>
-                                    <li><i class="fa fa-map-marker"></i> 4 Tottenham Road, London, England.</li>
-                                    <li><i class="fa fa-phone"></i> (123) 45678910</li>
-                                    <li><i class="fa fa-envelope"></i> huycoi.art@gmail.com</li>
-                                    <li><i class="fa fa-fax"></i> +84 962 216 601</li>
-                                    <li><i class="fa fa-clock-o"></i> Mon - Sat: 9:00 - 18:00</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-5">
-                            <div class="agent-contact-form">
-                                <form id="agent-form" class="agent-form" method="post" action="#">
-                                    <input type="text" name="name" placeholder="Full Name" class="required">
-                                    <input type="text" name="phone" placeholder="Phone Number" class="required">
-                                    <input type="text" name="email" placeholder="Email" class="email required">
-                                    <textarea name="message" cols="30" rows="5" class="required"
-                                              placeholder="Message"></textarea>
-                                    <button class="btn btn-default btn-lg btn-3d" type="submit"
-                                            data-hover="SUBMIT REQUEST">SUBMIT REQUEST
-                                    </button>
-                                    <div class="error-container"></div>
-                                    <div class="message-container"></div>
-                                </form>
-                            </div>
-                        </div>
+                    <div class="row" id="broInfo">
                     </div>
                 </section>
-            </div>
-            <div class="col-lg-4 col-md-5">
-                <div id="property-sidebar">
-                </div>
             </div>
         </div>
     </div>
 </div>
+<!-- 公寓特色 start-->
+<section id="property-listing" class="text-center">
+    <div class="container ">
+        <h2 class="title wow slideInLeft">精品房源</h2>
+    </div>
+    <div class="container">
+        <div class="row" id="gongyus">
+        </div>
+    </div>
+</section>
+<!-- 公寓特色 end-->
 <footer id="footer">
     <div class="site-footer">
         <div class="container">
@@ -331,5 +224,106 @@
 <script src="<%=request.getContextPath()%>/jquery/yemian/assets/js/theme.js"></script>
 </body>
 <script type="text/javascript">
+
+    $(function(){
+        query();
+        queryGongYu();
+    })
+    function query(){
+        $.ajax({
+            url:'queryBroInfo',
+            type:'post',
+            success:function(data){
+                var op="";
+                for(var i=0;i<data.length;i++){
+                    op+="<div class='col-lg-6'>\n" +
+                        "                            <div class='agent-box clearfix' style='width: 600px'>\n" +
+                        "                                <div class='row'>\n" +
+                        "                                    <div class='col-sm-3 col-xs-3'>\n" +
+                        "                                        <a class='agent-image'><img\n" +
+                        "                                                src='"+data[i].broCover+"'" +
+                        "                                                ></a>" +
+                        "                                    </div>" +
+                        "                                    <div class='col-sm-4 col-xs-5'>\n" +
+                        "                                    <h3>"+data[i].broName+"</h3>" +
+                        "&nbsp;" +
+                        "&nbsp;" +
+                        "&nbsp;" +
+                        "&nbsp;" +
+                        "&nbsp;<br/>" +
+                        "                                    <font>服务年限："+data[i].workYear+"</font><br/>" +
+                        "                                    <font>服务区域："+data[i].coverage+"</font><br/>" +
+                        "                                    <font>所属店铺："+data[i].storeName+"</font>" +
+                        "                                    </div>" +
+                        "<div class='col-sm-2 col-xs-1'>" +
+                        "       <h6><a hrerf=''><i class='fa fa-heart-o' aria-hidden='true'></i><span>&nbsp; "+data[i].follCount+"</span></a></h6>" +
+                        "</div>" +
+                        "                                </div>\n" +
+                        "                            </div>\n" +
+                        "                        </div>" +
+                        "                        <div class='col-lg-5'>" +
+                        "                            <font size='5px'><b>"+data[i].zuping+"套</b></font>" +
+                        "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
+                        "                            <font size='5px'><b>"+data[i].daikan+"次</b></font>" +
+                        "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
+                        "                            <font size='5px'><b>"+data[i].follCount+"人</b></font><br/>" +
+                        "                            <font><i class='fa fa-dollar'>买卖成交</i></font>" +
+                        "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
+                        "                            <font><i class='fa fa-eye'>30天带看</i></font>" +
+                        "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
+                        "                            <font><i class='fa fa-heart-o'>关注人数</i></font><br/>" +
+                        "                            <div  style='margin-top: 60px;margin-left: 40px'>" +
+                        "                           <font size='7px'><i class='fa fa-mobile' aria-hidden='true'>"+data[i].iphone+"</i></font>" +
+                        "                           </div>" +
+                        "                        </div>";
+                }
+                $("#broInfo").append(op);
+            }
+        })
+    }
+
+    function queryGongYu() {
+        $.ajax({
+            url: "queryfangyuan?housetype=3&page=0&rows=6",
+            success: function (data) {
+                var op = "";
+                for (var i = 0; i < data.length; i++) {
+                    op += "<div class=\"col-lg-4 col-sm-6 layout-item-wrap\">\n" +
+                        "                <article class=\"property layout-item clearfix\">\n" +
+                        "                    <figure class=\"feature-image\">\n" +
+                        "                        <a class=\"clearfix zoom\"\n" +
+                        "                           href=\"<%=request.getContextPath()%>/toxiangqing?houseid=" + data[i].houseid + "\"><img\n" +
+                        "                                data-action=\"zoom\"\n" +
+                        "                                src=\"<%=request.getContextPath()%>/jquery/yemian/assets/images/property/1.jpg\"\n" +
+                        "                                alt=\"Property Image\"></a>\n" +
+                        "                        <span class=\"btn btn-warning btn-sale\">待售</span>\n" +
+                        "                    </figure>\n" +
+                        "                    <div class=\"property-contents clearfix\">\n" +
+                        "                        <header class=\"property-header clearfix\">\n" +
+                        "                            <div class=\"pull-left\">\n" +
+                        "                                <h6 class=\"entry-title\"><a\n" +
+                        "                                        href=\"<%=request.getContextPath()%>/toxiangqing?houseid=" + data[i].houseid + "\"> " + data[i].housename + "</a></h6>\n" +
+                        "                                <span class=\"property-location\"><i class=\"fa fa-map-marker\"></i></span>\n" +
+                        "                            </div>\n" +
+                        "                            <button class=\"btn btn-default btn-price pull-right btn-3d\" data-hover=" + data[i].pricename + "><strong> " + data[i].pricename + "</strong></button>\n" +
+                        "                        </header>\n" +
+                        "                        <div class=\"property-meta clearfix\">\n" +
+                        "                            <span><i class=\"fa fa-arrows-alt\"></i> 面积：" + data[i].acreagename + "</span>\n" +
+                        "                            <span><i class=\"fa fa-bed\"></i> 户型：" + data[i].unitname + "一厅一卫</span>\n" +
+                        "                            <span><i class=\"fa fa-bathtub\"></i>朝向：" + data[i].mianxiangname + "</span>\n" +
+                        "                           <span><i class=\"fa fa-cab\"></i>发布时间：" + data[i].housetime.substr(0,9) +"</span>\n" +
+                        "                        </div>\n" +
+                        "                        <div class=\"contents clearfix\">\n" +
+                        "                            <p></p>\n" +
+                        "                        </div>\n" +
+                        "                    </div>\n" +
+                        "                </article>\n" +
+                        "            </div>";
+                }
+                $("#gongyus").append(op);
+            }
+        })
+    }
+
 </script>
 </html>
