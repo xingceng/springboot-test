@@ -116,6 +116,7 @@
                 <c:if test="${sessionScope.Kehu!=null}">
                     <div class="contact-in-header clearfix" id="loginname">
                         <span><a href="">${sessionScope.Kehu.kehuname}</a></span>
+                        <span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="<%=request.getContextPath()%>/zhuxiao">注销</a></span>
                     </div>
                 </c:if>
             </div>
