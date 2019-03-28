@@ -98,17 +98,25 @@
                         <li><a href="<%=request.getContextPath()%>/togongyu">公寓</a></li>
                         <li><a href="<%=request.getContextPath()%>/tohaiwai">海外</a></li>
                         <li><a href="<%=request.getContextPath()%>/toBroker">经纪人</a></li>
+                        <li><a href="<%=request.getContextPath()%>/tozhishi">知识</a></li>
                     </ul>
                 </nav>
             </div>
             <div class="col-md-4 col-sm-4">
-                <div class="contact-in-header clearfix" id="loginname">
-                    <i class="fa fa-mobile"></i>
-                    <a class="btn btn-warning btn-lg btn-3d" data-hover="登陆"
-                       href="<%=request.getContextPath()%>/tologin" role="button">登陆</a>
-                    <a class="btn btn-warning btn-lg btn-3d" data-hover="注册"
-                       href="<%=request.getContextPath()%>/toregedis" role="button">注册</a>
-                </div>
+                <c:if test="${sessionScope.Kehu==null}">
+                    <div class="contact-in-header clearfix" id="loginname">
+                        <i class="fa fa-mobile"></i>
+                        <a class="btn btn-warning btn-lg btn-3d" data-hover="登陆"
+                           href="<%=request.getContextPath()%>/tologin" role="button">登陆</a>
+                        <a class="btn btn-warning btn-lg btn-3d" data-hover="注册"
+                           href="<%=request.getContextPath()%>/toregedis" role="button">注册</a>
+                    </div>
+                </c:if>
+                <c:if test="${sessionScope.Kehu!=null}">
+                    <div class="contact-in-header clearfix" id="loginname">
+                        <span><a href="">${sessionScope.Kehu.kehuname}</a></span>
+                    </div>
+                </c:if>
             </div>
         </div>
     </div>
@@ -158,9 +166,8 @@
                     <option value="">装修</option>
                 </select>
             </fieldset>
-            <button class="btn btn-default btn-lg text-center" id="hidden-sm">搜索<br class="hidden-sm hidden-xs">
-            </button>
         </form>
+        <button id="sousu" class="btn btn-primary">搜索</button>
     </div>
 </div>
 <section id="property-listing">
@@ -439,6 +446,65 @@
         var status=$(this).val()
         $.ajax({
             url: "queryershouofangbydate?housetype=1&page=0&rows=9&status="+status,
+            data:{},
+            success: function (data) {
+                var op = "";
+                for (var i = 0; i < data.length; i++) {
+                    op += "<div class=\"col-lg-4 col-sm-6 layout-item-wrap\">\n" +
+                        "                <article class=\"property layout-item clearfix\">\n" +
+                        "                    <figure class=\"feature-image\">\n" +
+                        "                        <a class=\"clearfix zoom\"\n" +
+                        "                           href=\"<%=request.getContextPath()%>/jquery/yemian/single-property.html\"><img\n" +
+                        "                                data-action=\"zoom\"\n" +
+                        "                                src=\"<%=request.getContextPath()%>/jquery/yemian/assets/images/property/9.jpg\"\n" +
+                        "                                alt=\"Property Image\"></a>\n" +
+                        "                        <span class=\"btn btn-warning btn-sale\">待售</span>\n" +
+                        "                    </figure>\n" +
+                        "                    <div class=\"property-contents clearfix\">\n" +
+                        "                        <header class=\"property-header clearfix\">\n" +
+                        "                            <div class=\"pull-left\">\n" +
+                        "                                <h6 class=\"entry-title\"><a\n" +
+                        "                                         href=\"<%=request.getContextPath()%>/toxiangqing?houseid=" + data[i].houseid + "\"> "+ data[i].housename +"</a></h6>\n" +
+                        "                                <span class=\"property-location\"><i class=\"fa fa-map-marker\"></i></span>\n" +
+                        "                            </div>\n" +
+                        "                            <button class=\"btn btn-default btn-price pull-right btn-3d\" data-hover="+ data[i].pricename + "><strong>"+ data[i].pricename + "</strong>\n" +
+                        "                            </button>\n" +
+                        "                        </header>\n" +
+                        "                        <div class=\"property-meta clearfix\">\n" +
+                        "                            <span><i class=\"fa fa-arrows-alt\"></i>面积：" + data[i].acreagename + "</span>\n" +
+                        "                            <span><i class=\"fa fa-bed\"></i> 户型：" + data[i].unitname + "一厅一卫</span>\n" +
+                        "                            <span><i class=\"fa fa-bathtub\"></i> 朝向：" + data[i].mianxiangname + "</span>\n" +
+                        "                             <span><i class=\"fa fa-cab\"></i>发布时间：" + data[i].housetime +"</span>\n" +
+                        "                        </div>\n" +
+                        "                        <div class=\"contents clearfix\">\n" +
+                        "                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor\n" +
+                        "                                invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et\n" +
+                        "                                accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata\n" +
+                        "                                sanctus est Lorem ipsum dolor sit amet. </p>\n" +
+                        "                        </div>\n" +
+                        "                        <div class=\"author-box clearfix\">\n" +
+                        "                            <a href=\"<%=request.getContextPath()%>/jquery/yemian/#\" class=\"author-img\"><img\n" +
+                        "                                    src=\"<%=request.getContextPath()%>/jquery/yemian/assets/images/agents/1.jpg\"\n" +
+                        "                                    alt=\"Agent Image\"></a>\n" +
+                        "                            <cite class=\"author-name\">Personal Seller: <a\n" +
+                        "                                    href=\"<%=request.getContextPath()%>/jquery/yemian/#\">Linda Garret</a></cite>\n" +
+                        "                            <span class=\"phone\"><i class=\"fa fa-phone\"></i> 00894 692-49-22</span>\n" +
+                        "                        </div>\n" +
+                        "                    </div>\n" +
+                        "                </article>\n" +
+                        "            </div>";
+                }
+                $("#ershoufangyuans").html(op);
+            }
+        })
+        });
+    // 条件查询
+    $("#sousu").on("click", function () {
+       $.ajax({
+            url: " <%=request.getContextPath()%>/queryershoufangbytype",
+            type: "post",
+            data: $("#adv-search-form").serialize(),
+            dataType: "json",
             success: function (data) {
                 var op = "";
                 for (var i = 0; i < data.length; i++) {
@@ -485,11 +551,14 @@
                         "                    </div>\n" +
                         "                </article>\n" +
                         "            </div>";
-                }
+            }
                 $("#ershoufangyuans").html(op);
+            },
+            error: function () {
+                alert("程序错误");
             }
         })
-        });
+    });
 </script>
 </body>
 </html>

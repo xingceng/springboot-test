@@ -8,10 +8,6 @@ import java.util.List;
 
 public interface HouseRwjDao {
 
-    //登陆
-    @Select("SELECT * FROM t_kehu k WHERE k.`kehuname`=#{kehuname}")
-    List<Kehu> getTestNameIsNull(Kehu kehu);
-
     //查询面积
     @Select("select * from t_acreage ")
     List<Acreage> queryAcreage();
@@ -59,4 +55,39 @@ public interface HouseRwjDao {
 
     @Select("SELECT h.*,a.`acreagename`,c.`circuitname`,lc.`loucengname`,ll.`loulingname`,m.`mianxiangname`,p.`pricename`,u.`unitname`,yt.`yongtuname`,z.`zhuangxiuname` FROM t_house h,t_acreage a,t_louceng lc,t_louling ll,t_mianxiang m,t_privce p,t_unit u,t_yongtu yt,t_zhuangxiu z,t_circuit c where h.houseacreageid = a.`acreageid`and h.`housecircuitid`=c.`circuitid`and h.`houseloucengid`=lc.`loucengid`and h.`houseloulingid`=ll.`loulingid` and h.`housemianxiang`=m.`mianxiangid`and h.`housepriceid` =p.`priceid` and h.`houseunitid`=u.`unitid` and h.`houseyongtuid`=yt.`yongtuid`and h.`housezhuangxiuid`=z.`zhuangxiuid` and h.`houseid`=#{houseid}")
     House queryfangyuanbyid(Integer houseid);
+
+    @Select("<script>"
+            + "SELECT h.*,a.`acreagename`,c.`circuitname`,lc.`loucengname`,ll.`loulingname`,m.`mianxiangname`,p.`pricename`,u.`unitname`,yt.`yongtuname`,z.`zhuangxiuname` FROM t_house h,t_acreage a,t_louceng lc,t_louling ll,t_mianxiang m,t_privce p,t_unit u,t_yongtu yt,t_zhuangxiu z,t_circuit c where h.houseacreageid = a.`acreageid`and h.`housecircuitid`=c.`circuitid`and h.`houseloucengid`=lc.`loucengid`and h.`houseloulingid`=ll.`loulingid` and h.`housemianxiang`=m.`mianxiangid`and h.`housepriceid` =p.`priceid` and h.`houseunitid`=u.`unitid` and h.`houseyongtuid`=yt.`yongtuid`and h.`housezhuangxiuid`=z.`zhuangxiuid`and h.`housetype`=1 "
+            + "<if test='h.housecircuitid !=null'>"
+            + "and h.housecircuitid =#{h.housecircuitid}"
+            + "</if>"
+            + "<if test='h.houseacreageid !=null'>"
+            + "and h.houseacreageid =#{h.houseacreageid}"
+            + "</if>"
+            + "<if test='h.houseunitid !=null'>"
+            + "and h.houseunitid =#{h.houseunitid}"
+            + "</if>"
+            + "<if test='h.houseyongtuid !=null'>"
+            + "and h.houseyongtuid =#{h.houseyongtuid}"
+            + "</if>"
+            + "<if test='h.houseloucengid !=null'>"
+            + "and h.houseloucengid =#{h.houseloucengid}"
+            + "</if>"
+            + "<if test='h.housemianxiang !=null'>"
+            + "and h.housemianxiang =#{h.housemianxiang}"
+            + "</if>"
+            + "<if test='h.houseloulingid !=null'>"
+            + "and h.houseloulingid =#{h.houseloulingid}"
+            + "</if>"
+            + "<if test='h.housezhuangxiuid !=null'>"
+            + "and h.housezhuangxiuid =#{h.housezhuangxiuid}"
+            + "</if>"
+            + "<if test='h.housepriceid !=null'>"
+            + "and h.housepriceid =#{h.housepriceid}"
+            + "</if>"
+            + "</script>")
+    List<House> queryershoufangbytype(@Param("h") House house);
+    //登陆
+    @Select("SELECT * FROM t_kehu k WHERE k.`kehuname`=#{Kehuname}")
+    Kehu queryKeHu(String Kehuname);
 }

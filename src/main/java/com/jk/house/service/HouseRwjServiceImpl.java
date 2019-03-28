@@ -14,20 +14,6 @@ public class HouseRwjServiceImpl implements HouseRwjService {
     private HouseRwjDao houseRwjDao;
 
     @Override
-    public String login(Kehu kehu) {
-        List<Kehu> list = houseRwjDao.getTestNameIsNull(kehu);
-        if (list.size() == 1) {
-            if (kehu.getKehupassword().equals(list.get(0).getKehupassword())) {
-                return "loginSuccess"+","+list.get(0).getKehuname()+","+list.get(0).getKehuid();
-            } else {
-                return "userPassNo";
-            }
-        } else {
-            return "userNameNO";
-        }
-    }
-
-    @Override
 
     public List<Acreage> queryAcreage() {
         return houseRwjDao.queryAcreage();
@@ -93,4 +79,15 @@ public class HouseRwjServiceImpl implements HouseRwjService {
         return houseRwjDao.queryfangyuanbyid(houseid);
 
     }
+
+    @Override
+    public Kehu queryKeHu(String Kehuname) {
+        return houseRwjDao.queryKeHu(Kehuname);
+    }
+
+    @Override
+    public List<House> queryershoufangbytype(House house) {
+        return houseRwjDao.queryershoufangbytype(house);
+    }
+
 }

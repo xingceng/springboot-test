@@ -34,10 +34,12 @@
 <div class="page-container">
     <h1>城市之夜</h1>
     <form id="loginfrom">
-        <input type="text" name="kehuname" class="username" placeholder="Username">
-        <input type="password" name="kehupassword" class="password" placeholder="Password">
-        <button id="login">Sign me in</button>
+        <input type="text" name="kehuname" class="username" placeholder="用户名">
+        <input type="password" name="kehupassword" class="password" placeholder="密码">
+        <span id="tishi"></span>
+        <button id="login">登陆</button>
     </form>
+
 </div>
 <!-- Javascript -->
 <script src="<%=request.getContextPath()%>/jquery/login/assets/js/jquery-1.8.2.min.js"></script>
@@ -48,26 +50,17 @@
 </body>
 <script type="text/javascript">
     $("#login").on("click", function () {
-        alert($("#loginfrom").serialize())
         $.ajax({
-            url: "<%=request.getContextPath()%>/loginkehu",
+            url: "loginkehu",
             type: "post",
             data: $("#loginfrom").serialize(),
             dataType: "text",
-            success: function (logins) {
-                //用户名不存在
-                if (logins == "userNameNO") {
-                    alert("用户名不存在");
-                }
-                //密码错误
-                if (logins == "userPassNo") {
-                    alert("密码错误")
-                }
+            success: function (data) {
                 //登录成功
-                if (logins == "loginSuccess") {
+                if (data == "登陆成功") {
                     location.href = "/1807/toindex"
-                    ;
-
+                }else{
+                    $("#tishi").html(data);
                 }
             },
             error: function () {

@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -90,7 +91,7 @@
         <div class="row">
             <div class="col-md-3">
                 <figure id="site-logo">
-                    <a href="<%=request.getContextPath()%>/jquery/yemian/index.html"><img
+                    <a href="<%=request.getContextPath()%>/toindex"><img
                             src="<%=request.getContextPath()%>/jquery/yemian/assets/images/logo.png" alt="Logo"></a>
                 </figure>
             </div>
@@ -107,13 +108,20 @@
                 </nav>
             </div>
             <div class="col-md-4 col-sm-4">
-                <div class="contact-in-header clearfix" id="loginname">
-                    <i class="fa fa-mobile"></i>
-                    <a class="btn btn-warning btn-lg btn-3d" data-hover="登陆"
-                       href="<%=request.getContextPath()%>/tologin" role="button">登陆</a>
-                    <a class="btn btn-warning btn-lg btn-3d" data-hover="注册"
-                       href="<%=request.getContextPath()%>/toregedis" role="button">注册</a>
-                </div>
+                <c:if test="${sessionScope.Kehu==null}">
+                    <div class="contact-in-header clearfix" id="loginname">
+                        <i class="fa fa-mobile"></i>
+                        <a class="btn btn-warning btn-lg btn-3d" data-hover="登陆"
+                           href="<%=request.getContextPath()%>/tologin" role="button">登陆</a>
+                        <a class="btn btn-warning btn-lg btn-3d" data-hover="注册"
+                           href="<%=request.getContextPath()%>/toregedis" role="button">注册</a>
+                    </div>
+                </c:if>
+                <c:if test="${sessionScope.Kehu!=null}">
+                    <div class="contact-in-header clearfix" id="loginname">
+                        <span><a href="">${sessionScope.Kehu.kehuname}</a></span>
+                    </div>
+                </c:if>
             </div>
         </div>
     </div>
@@ -149,22 +157,22 @@
                 </section>
                 <section class="property-contents common">
                     <div class="entry-title clearfix">
-                        <h4 class="pull-left">Description </h4>
+                        <h4 class="pull-left">详情</h4>
                     </div>
                     <p>${list.housexiangqing}</p>
                 </section>
                 <section class="property-single-features common clearfix">
-                    <h4 class="entry-title">Property Features</h4>
+                    <h4 class="entry-title">室内配置</h4>
                     <ul class="property-single-features-list clearfix">
-                        <li>Air Conditioning</li>
-                        <li>Cable TV</li>
-                        <li>Cot</li>
-                        <li class="disabled">Fan</li>
-                        <li>Lift</li>
-                        <li>Parking</li>
-                        <li>Separate Shower</li>
-                        <li>Office/den</li>
+                        <li>空调</li>
+                        <li>有线电视</li>
+                        <li>婴儿床</li>
+                        <li>电梯</li>
+                        <li>停车处</li>
+                        <li>独立淋浴</li>
+                        <%--<li>Office/den</li>
                         <li class="disabled">Air Conditioning</li>
+                         <li class="disabled">Fan</li>
                         <li>Cable TV</li>
                         <li>Cot</li>
                         <li>Fan</li>
@@ -177,13 +185,13 @@
                         <li>Separate Shower</li>
                         <li class="disabled">Office/den</li>
                         <li>Air Conditioning</li>
-                        <li>Cable TV</li>
+                        <li>Cable TV</li>--%>
                     </ul>
                 </section>
 
                 <
                 <section class="property-agent common">
-                    <h4 class="entry-title">Contact Agent</h4>
+                    <h4 class="entry-title">经纪人/h4>
                     <div class="row">
                         <div class="col-lg-7">
                             <div class="agent-box clearfix">

@@ -1,7 +1,7 @@
 server:
   servlet:
     context-path: /1807
-  port: 8080
+  port: 8082
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
@@ -28,3 +28,10 @@ spring:
         max-wait: 3000
     host: 127.0.0.1
     timeout: 5000
+elasticsearch:
+  cluster:
+    name: my-application
+  ip: 0.0.0.0
+  pool: 5
+  port: 9300
+

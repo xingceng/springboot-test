@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -84,7 +85,7 @@
         <div class="row">
             <div class="col-md-3">
                 <figure id="site-logo">
-                    <a href="<%=request.getContextPath()%>/jquery/yemian/index.html"><img
+                    <a href="<%=request.getContextPath()%>/toindex"><img
                             src="<%=request.getContextPath()%>/jquery/yemian/assets/images/logo.png" alt="Logo"></a>
                 </figure>
             </div>
@@ -97,17 +98,25 @@
                         <li><a href="<%=request.getContextPath()%>/togongyu">公寓</a></li>
                         <li><a href="<%=request.getContextPath()%>/tohaiwai">海外</a></li>
                         <li><a href="<%=request.getContextPath()%>/toBroker">经纪人</a></li>
+                        <li><a href="<%=request.getContextPath()%>/tozhishi">知识</a></li>
                     </ul>
                 </nav>
             </div>
             <div class="col-md-4 col-sm-4">
-                <div class="contact-in-header clearfix" id="loginname">
-                    <i class="fa fa-mobile"></i>
-                    <a class="btn btn-warning btn-lg btn-3d" data-hover="登陆"
-                       href="<%=request.getContextPath()%>/tologin" role="button">登陆</a>
-                    <a class="btn btn-warning btn-lg btn-3d" data-hover="注册"
-                       href="<%=request.getContextPath()%>/toregedis" role="button">注册</a>
-                </div>
+                <c:if test="${sessionScope.Kehu==null}">
+                    <div class="contact-in-header clearfix" id="loginname">
+                        <i class="fa fa-mobile"></i>
+                        <a class="btn btn-warning btn-lg btn-3d" data-hover="登陆"
+                           href="<%=request.getContextPath()%>/tologin" role="button">登陆</a>
+                        <a class="btn btn-warning btn-lg btn-3d" data-hover="注册"
+                           href="<%=request.getContextPath()%>/toregedis" role="button">注册</a>
+                    </div>
+                </c:if>
+                <c:if test="${sessionScope.Kehu!=null}">
+                        <div class="contact-in-header clearfix" id="loginname">
+                            <span><a href="">${sessionScope.Kehu.kehuname}</a></span>
+                        </div>
+                </c:if>
             </div>
         </div>
     </div>
@@ -131,52 +140,13 @@
                     <p>如果你梦想设计一个新的家，充分利用<br>
                         独特的地理位置和你喜欢的土地景观</p>
                 </div>
-                <a class="btn btn-warning btn-lg btn-3d" data-hover="Our Services"
-                   href="<%=request.getContextPath()%>/jquery/yemian/#" role="button">我们的服务</a>
-                <a class="btn btn-default btn-border btn-lg" href="<%=request.getContextPath()%>/jquery/yemian/#"
-                   role="button">获取报价</a>
             </div>
         </div>
     </div>
 </div>
 <div id="advance-search" class="main-page clearfix">
     <div class="container">
-        <form action="#" id="adv-search-form" class="clearfix">
-            <fieldset>
-                <select name="location" id="main-location">
-                    <option value="">所有位置</option>
-                </select>
-                <select name="sub-location" id="property-sub-location">
-                    <option value="">所有线路</option>
-                </select>
-                <select name="price" id="property-price">
-                    <option value="">总价</option>
-                </select>
-                <select name="acreage" id="property-acreage">
-                    <option value="">面积</option>
-                </select>
-                <select name="huxing" id="property-huxing">
-                    <option value="">户型</option>
-                </select>
-                <select name="yongtu" id="property-yongtu">
-                    <option value="">用途</option>
-                </select>
-                <select name="louceng" id="property-louceng">
-                    <option value="">楼层</option>
-                </select>
-                <select name="mianxiang" id="property-mianxiang">
-                    <option value="">朝向</option>
-                </select>
-                <select name="louling" id="property-louling">
-                    <option value="">楼龄</option>
-                </select>
-                <select name="zhuangxiu" id="property-zhuangxiu">
-                    <option value="">装修</option>
-                </select>
-            </fieldset>
-            <button class="btn btn-default btn-lg text-center" id="hidden-sm">搜索<br class="hidden-sm hidden-xs">
-            </button>
-        </form>
+
     </div>
 </div>
 <!-- 二手房特色 start -->
@@ -587,37 +557,5 @@
         }
     }
 
-
-
-
-    //条件查询
-    $("#hidden-sm").on("click", function () {
-        alert($("#adv-search-form").serialize())
-        /*$.ajax({
-            url: "
-        <%=request.getContextPath()%>/loginusers",
-            type: "post",
-            data: $("#loginfrom").serialize(),
-            dataType: "text",
-            success: function (loginFlag) {
-                //用户名不存在
-                if (loginFlag == "userNameNO") {
-                    alert("用户名不存在");
-                }
-                //密码错误
-                if (loginFlag == "userPassNo") {
-                    alert("密码错误")
-                }
-                //登录成功
-                if (loginFlag == "loginSuccess") {
-                    location.href = "/loginbolgs/toindexbolg";
-
-                }
-            },
-            error: function () {
-                alert("程序错误");
-            }
-        })*/
-    });
 </script>
 </html>

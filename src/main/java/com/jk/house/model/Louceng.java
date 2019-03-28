@@ -4,15 +4,15 @@ import java.io.Serializable;
 
 public class Louceng implements Serializable {
     private static final long serialVersionUID = -2964505464836935851L;
-    private Integer locengid;
+    private Integer loucengid;
     private String loucengname;
 
-    public Integer getLocengid() {
-        return locengid;
+    public Integer getLoucengid() {
+        return loucengid;
     }
 
-    public void setLocengid(Integer locengid) {
-        this.locengid = locengid;
+    public void setLoucengid(Integer loucengid) {
+        this.loucengid = loucengid;
     }
 
     public String getLoucengname() {

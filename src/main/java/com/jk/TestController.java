@@ -43,6 +43,20 @@ public class TestController {
     public String tohaiwai() {
         return "haiwai";
     }
+    @RequestMapping("tozhishi")
+    public String tozhishi() { return "zhishi"; }
+    @RequestMapping("tozhishixiangqing")
+    public String tozhishixiangqing(Integer id, HttpSession session) {
+        session.setAttribute("id",id);
+        return "zhishixiangqing"; }
+    @RequestMapping("tozhishiyemian")
+       public String tozhishiyemian(Integer id, HttpSession session) {
+        session.setAttribute("kid",id);
+        return "zhishiyemian"; }
+    @RequestMapping("tosingle")
+    public String tosingle() {
+        return "single";
+    }
 
     @RequestMapping("toBroker")
     public String toBroker(){
